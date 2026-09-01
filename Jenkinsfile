@@ -8,19 +8,19 @@ pipeline {
     stages {
         stage('Instalar Dependências') {
             steps {
-                sh 'npm install'
+                bat 'npm ci'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
 
         stage('Teste') {
             steps {
-                sh 'npm test'
+                bat 'npm test -- --runInBand'
             }
         }
     }
@@ -34,4 +34,3 @@ pipeline {
         }
     }
 }
-
